@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilchahbi <ilchahbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/17 11:12:52 by ilchahbi          #+#    #+#             */
-/*   Updated: 2025/02/18 16:10:06 by ilchahbi         ###   ########.fr       */
+/*   Created: 2025/02/17 13:06:35 by ilchahbi          #+#    #+#             */
+/*   Updated: 2025/02/17 14:50:36 by ilchahbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-Cat::Cat()
-{
-    type = "Cat";
-    std::cout << "Cat constructor called" << std::endl;
-}
+#include <iostream>
 
-Cat &Cat::operator=(const Cat &other)
+class Brain
 {
-    if (this != &other)
-    {
-        Animal::operator=(other);
-    }
-    return *this;
-}
+    private:
+        std::string ideas[100];
 
-Cat::~Cat()
-{
-    std::cout << "Cat destructor called" << std::endl;
-}
+    public:
+        Brain();
+        Brain(const Brain& other);
+        Brain& operator=(const Brain& other);
+        ~Brain();
+        void setIdea(int index, const std::string& idea);
+        std::string getIdea(int index) const;
+};
 
-void Cat::makeSound() const
-{
-    std::cout << "Meow! Meow!" << std::endl;
-}
+#endif

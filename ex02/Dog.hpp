@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilchahbi <ilchahbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/17 11:12:52 by ilchahbi          #+#    #+#             */
-/*   Updated: 2025/02/18 16:10:06 by ilchahbi         ###   ########.fr       */
+/*   Created: 2025/02/17 11:11:31 by ilchahbi          #+#    #+#             */
+/*   Updated: 2025/02/17 14:53:23 by ilchahbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#ifndef DOG_HPP
+# define DOG_HPP
 
-Cat::Cat()
-{
-    type = "Cat";
-    std::cout << "Cat constructor called" << std::endl;
-}
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-Cat &Cat::operator=(const Cat &other)
+class Dog : public Animal
 {
-    if (this != &other)
-    {
-        Animal::operator=(other);
-    }
-    return *this;
-}
+    private :
+        Brain *brain;
+    public:
+        Dog();
+        Dog(const Dog &other);
+        Dog &operator=(const Dog &other);
+        ~Dog();
+        void makeSound() const;
+};
 
-Cat::~Cat()
-{
-    std::cout << "Cat destructor called" << std::endl;
-}
-
-void Cat::makeSound() const
-{
-    std::cout << "Meow! Meow!" << std::endl;
-}
+#endif

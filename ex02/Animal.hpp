@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilchahbi <ilchahbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/17 11:12:52 by ilchahbi          #+#    #+#             */
-/*   Updated: 2025/02/18 16:10:06 by ilchahbi         ###   ########.fr       */
+/*   Created: 2025/02/17 11:05:19 by ilchahbi          #+#    #+#             */
+/*   Updated: 2025/02/18 11:56:46 by ilchahbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#ifndef	ANIMAL_HPP
+# define	ANIMAL_HPP
 
-Cat::Cat()
-{
-    type = "Cat";
-    std::cout << "Cat constructor called" << std::endl;
-}
+#include <iostream>
+#include <string>
 
-Cat &Cat::operator=(const Cat &other)
+class Animal
 {
-    if (this != &other)
-    {
-        Animal::operator=(other);
-    }
-    return *this;
-}
+	protected:
+   		std::string type;
+	public:
+    	Animal();
+		Animal(const Animal &other);
+    	Animal &operator=(const Animal &other);
+    	virtual ~Animal();
+    	virtual void makeSound() const = 0;
+    	std::string getType() const;
+};
 
-Cat::~Cat()
-{
-    std::cout << "Cat destructor called" << std::endl;
-}
-
-void Cat::makeSound() const
-{
-    std::cout << "Meow! Meow!" << std::endl;
-}
+#endif

@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilchahbi <ilchahbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/17 11:12:52 by ilchahbi          #+#    #+#             */
-/*   Updated: 2025/02/18 16:10:06 by ilchahbi         ###   ########.fr       */
+/*   Created: 2025/02/18 16:34:38 by ilchahbi          #+#    #+#             */
+/*   Updated: 2025/02/18 16:44:39 by ilchahbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-Cat::Cat()
-{
-    type = "Cat";
-    std::cout << "Cat constructor called" << std::endl;
-}
+#include "WrongAnimal.hpp"
 
-Cat &Cat::operator=(const Cat &other)
+class WrongCat : public WrongAnimal
 {
-    if (this != &other)
-    {
-        Animal::operator=(other);
-    }
-    return *this;
-}
+public:
+    WrongCat();
+    WrongCat(const WrongCat& other);
+    WrongCat& operator=(const WrongCat& other);
+    ~WrongCat();
+    void makeSound() const;
+};
 
-Cat::~Cat()
-{
-    std::cout << "Cat destructor called" << std::endl;
-}
-
-void Cat::makeSound() const
-{
-    std::cout << "Meow! Meow!" << std::endl;
-}
+#endif

@@ -6,7 +6,7 @@
 /*   By: ilchahbi <ilchahbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 11:05:19 by ilchahbi          #+#    #+#             */
-/*   Updated: 2025/02/17 14:58:26 by ilchahbi         ###   ########.fr       */
+/*   Updated: 2025/02/18 11:19:43 by ilchahbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ class Animal
 {
 	protected:
    		std::string type;
-
 	public:
     	Animal();
 		Animal(const Animal &other);
